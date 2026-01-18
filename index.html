@@ -1386,28 +1386,172 @@
         <button class="arrow right" id="nextSlide">o</button>
     </section> -->
     <!-- Hero Section -->
-    <section class="hero-slider" id="home">
-        <div class="slides-container">
-            <div class="slide active" style="background-image: url('images/image1.jpg');"></div>
-            <div class="slide" style="background-image: url('images/image2.jpg');"></div>
-            <div class="slide" style="background-image: url('images/image3.jpg');"></div>
-            <div class="slide" style="background-image: url('images/image4.jpg');"></div>
-        </div> 
+   <style>
+.hero-slider {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+}
 
-        <!-- Hero Content -->
-        <div class="hero-overlay">
-            <h1>Your Trusted Investment Partner</h1>
-            <p>Building wealth and securing futures through strategic investment solutions tailored to your financial goals</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get Started</a>
-                <a href="#services" class="btn btn-secondary">Our Services</a>
-            </div>
-        </div>
+/* Slides */
+.slides-container {
+  position: absolute;
+  inset: 0;
+}
 
-        <!-- Navigation Arrows -->
-        <button class="arrow left" id="prevSlide">n</button>
-        <button class="arrow right" id="nextSlide">o</button>
-    </section>
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Overlay */
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.35)
+  );
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+/* Buttons */
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.85rem 1.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #0ea5e9;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0284c7;
+}
+
+.btn-secondary {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-overlay {
+    justify-content: center;
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
+</style>
+
+<section class="hero-slider" id="home">
+  <div class="slides-container">
+    <div class="slide active" style="background-image: url('images/image1.jpg');"></div>
+    <div class="slide" style="background-image: url('images/image2.jpg');"></div>
+    <div class="slide" style="background-image: url('images/image3.jpg');"></div>
+    <div class="slide" style="background-image: url('images/image4.jpg');"></div>
+  </div>
+
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Your Trusted Investment Partner</h1>
+      <p>
+        Building wealth and securing futures through strategic investment
+        solutions tailored to your financial goals.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">Get Started</a>
+        <a href="#services" class="btn btn-secondary">Our Services</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="arrow left" id="prevSlide">&#10094;</button>
+  <button class="arrow right" id="nextSlide">&#10095;</button>
+</section>
+
 
 
 
@@ -1525,29 +1669,169 @@
     </section> -->
 
             <!-- About Section -->
-        <section class="about" id="about">
-            <div class="about-container">
+<style>
+/* ===== ABOUT SECTION ===== */
+.about {
+  padding: 5rem 6%;
+  background: #ffffff;
+}
 
-                <div class="about-content">
-                    <div class="about-header">About Us</div>
-                    <h3 class="about-title">DELIVERING EXCELLENCE ACROSS EVERY PROJECT.</h3>
-                    <p class="about-tagline"><strong>Creating lasting value through strategic partnerships — Our focus is <span id="rotating-word" class="rotating-word">growth</span>.</strong></p>
-                    <p class="about-body">CORTIX INVESTMENT LIMITED is a diversified investment holding company focused on driving sustainable growth across Africa's core infrastructure sectors: Energy, Transport, Water, Agriculture, Industrial, minerals & mining . Headquartered in Nairobi, Kenya, and partnering with both local and international investors, we take a hands-on approach to developing impactful projects that transform communities and accelerate economic growth. Our focus is not just on capital deployment but on creating long-term value through innovation, operational excellence, and strategic collaboration.</p>
-                    <p class="about-tagline"><strong>Creating lasting value through strategic partnerships — Our focus is <span id="rotating-word" class="rotating-word">growth</span>.</strong></p>
-                    <div class="about-cta"><a href="#contact" class="btn btn-primary">Partner With Us</a></div>
-                </div>
+.about-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
 
-                <div class="about-images">
-                    <div class="about-image-grid">
-                        <img src="images/about1.jpg" alt="About 1">
-                        <img src="images/about2.jpg" alt="About 2">
-                        <img src="images/about3.jpg" alt="About 3">
-                        <img src="images/about4.jpg" alt="About 4">
-                    </div>
-                </div>
+/* Text Content */
+.about-header {
+  color: #c9a26d;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  text-align: left;
+}
 
-            </div>
-        </section>
+.about-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 1.2rem;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.about-tagline {
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.rotating-word {
+  color: #c9a26d;
+  font-weight: 700;
+}
+
+.about-body {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* CTA */
+.about-cta {
+  text-align: left;
+}
+
+.about-cta .btn {
+  background: linear-gradient(135deg, #c9a26d, #b08b57);
+  color: #0b1c3d;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.about-cta .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(176, 139, 87, 0.35);
+}
+
+/* Images */
+.about-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.about-image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-images {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .about-container {
+    gap: 2.5rem;
+  }
+
+  /* KEEP LEFT ALIGN ON MOBILE */
+  .about-header,
+  .about-title,
+  .about-tagline,
+  .about-body,
+  .about-cta {
+    text-align: left;
+  }
+}
+</style>
+
+<section class="about" id="about">
+  <div class="about-container">
+
+    <div class="about-content">
+      <div class="about-header">About Us</div>
+
+      <h3 class="about-title">
+        DELIVERING EXCELLENCE ACROSS EVERY PROJECT.
+      </h3>
+
+      <p class="about-tagline">
+        <strong>
+          Creating lasting value through strategic partnerships —
+          Our focus is <span class="rotating-word">growth</span>.
+        </strong>
+      </p>
+
+      <p class="about-body">
+        CORTIX INVESTMENT LIMITED is a diversified investment holding company
+        focused on driving sustainable growth across Africa's core infrastructure
+        sectors: Energy, Transport, Water, Agriculture, Industrial, Minerals & Mining.
+        Headquartered in Nairobi, Kenya, we partner with local and international
+        investors to develop impactful projects that transform communities and
+        accelerate economic growth through innovation, operational excellence,
+        and strategic collaboration.
+      </p>
+
+      <div class="about-cta">
+        <a href="#contact" class="btn">Partner With Us</a>
+      </div>
+    </div>
+
+    <div class="about-images">
+      <div class="about-image-grid">
+        <img src="images/about1.jpg" alt="Infrastructure Development">
+        <img src="images/about2.jpg" alt="Strategic Partnerships">
+        <img src="images/about3.jpg" alt="Sustainable Growth">
+        <img src="images/about4.jpg" alt="African Investments">
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 
     <!-- Why Choose Us Section
@@ -1583,7 +1867,7 @@
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="section-header">
-            <h2>Our Customer Reviews</h2>
+            <h2 style="text-align: left;">Our Customer Reviews</h2>
             <p>Don't just take our word for it - hear from our satisfied clients</p>
         </div>
         <div class="testimonials-grid">
@@ -1621,26 +1905,69 @@
     </section>
     
     <!-- Stats Section  -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">23</div>
-                <div class="stat-label">Patnerships</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">48</div>
-                <div class="stat-label">Projects</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">13</div>
-                <div class="stat-label">Countries</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">7</div>
-                <div class="stat-label">Years</div>
-            </div>
-        </div>
-    </section>
+    <style>
+/* ===== STATS SECTION ===== */
+.stats {
+  padding: 3rem 6%;
+  background: #0b1c3d;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #c9a26d;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .stats-container {
+    justify-content: center;
+  }
+}
+</style>
+
+<section class="stats">
+  <div class="stats-container">
+    <div class="stat-item">
+      <div class="stat-number">23</div>
+      <div class="stat-label">Partnerships</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">48</div>
+      <div class="stat-label">Projects</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">13</div>
+      <div class="stat-label">Countries</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">7</div>
+      <div class="stat-label">Years</div>
+    </div>
+  </div>
+</section>
+
     <!-- Video Section -->
         <section class="video-section" style="text-align:center; padding:3rem 1rem; background:#f9f9f9;">
             <!-- <h2 style="font-size:36px; margin-bottom:1rem;">Our Video</h2>

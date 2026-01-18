@@ -1,0 +1,2229 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORTIX INVESTMENT LIMITED - Professional Investment Solutions</title>
+    <link rel="icon" type="image/png" href="images/melox.png">
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0a0e27;
+            --secondary-color: #1e3a5f;
+            --accent-color: #d4a574;
+            --accent-dark: #b8925f;
+            --dark-color: #0f172a;
+            --light-color: #fafbfc;
+            --light-bg: #f5f6f8;
+            --white: #ffffff;
+            --text-dark: #0a0e27;
+            --text-light: #6b7280;
+            --text-muted: #9ca3af;
+            --border-color: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow-sm: 0 1px 3px rgba(10, 14, 39, 0.08);
+            --shadow-md: 0 4px 12px rgba(10, 14, 39, 0.12);
+            --shadow-lg: 0 12px 24px rgba(10, 14, 39, 0.15);
+            --shadow-xl: 0 20px 40px rgba(10, 14, 39, 0.18);
+            --shadow-2xl: 0 25px 50px rgba(10, 14, 39, 0.2);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(250, 251, 252, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+        }
+
+        nav.scrolled {
+            background: rgba(250, 251, 252, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.8px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background: var(--accent-color);
+            transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #0a0e27 0%, #0f172a 50%, #1e2a3f 100%);
+            color: var(--white);
+            padding: 140px 2rem 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(30, 58, 95, 0.1) 0%, transparent 50%);
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.75rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.15;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.85;
+            animation: fadeInUp 1s ease 0.2s backwards;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 0.95rem 2.25rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.4px;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--text-dark);
+            box-shadow: 0 6px 16px rgba(212, 165, 116, 0.28);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(212, 165, 116, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.18);
+            color: var(--white);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.28);
+            border-color: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--white);
+            padding: 5rem 2rem;
+            margin-top: -60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--light-bg) 100%);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+            letter-spacing: -1.2px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.25rem;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.75rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-color);
+        }
+
+        .service-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.75rem;
+            font-size: 1.8rem;
+            color: var(--white);
+            box-shadow: 0 6px 16px rgba(212, 165, 116, 0.24);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.35rem;
+            font-weight: 800;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4.5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-content h2 {
+            font-size: 2.75rem;
+            color: var(--primary-color);
+            margin-bottom: 1.75rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 2.5rem;
+        }
+
+        .about-features li {
+            padding: 1rem 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .about-features li::before {
+            content: '✓';
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Improved About styling */
+        .about-header {
+            text-align: center;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .about-body {
+            max-width: 780px;
+            margin: 0.75rem auto 1.25rem auto;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .about-tagline {
+            text-align: center;
+            margin-bottom: 1.25rem;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .rotating-word {
+            text-decoration: underline;
+            font-weight: 900;
+            color: var(--accent-color);
+            padding: 2px 6px;
+            border-radius: 6px;
+            background: rgba(212,165,116,0.06);
+        }
+
+        .about-cta { text-align: center; margin-bottom: 1.75rem; }
+
+        .about-images {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-image-grid img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.45s ease, filter 0.45s ease;
+            filter: saturate(0.95) contrast(1.02);
+        }
+
+        .about-image-grid img:hover {
+            transform: scale(1.04);
+            filter: saturate(1.05) contrast(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .about-container { grid-template-columns: 1fr; gap: 2rem; }
+            .about-image-grid img { height: 200px; }
+            .about-title { font-size: 1.6rem; }
+            .about-body { padding: 0 1rem; font-size: 1rem; }
+        }
+
+        /* Board avatars and timelines */
+        .board-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            box-shadow: 0 8px 18px rgba(10,14,39,0.12);
+            margin: 0 auto 8px auto;
+        }
+
+        .member-timeline {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-top: 0.6rem;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 260px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+
+        .feature-box .icon {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.75rem;
+            font-size: 2.1rem;
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.22);
+        }
+
+        .feature-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .feature-box p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-bg);
+            padding: 2.75rem;
+            border-radius: 10px;
+            position: relative;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1.5rem;
+            left: 1.75rem;
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            opacity: 0.15;
+        }
+
+        .testimonial-text {
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1.75rem;
+            align-items: start;
+        }
+
+        .info-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 16px rgba(212, 165, 116, 0.2);
+        }
+
+        .info-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .info-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.75rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.95rem;
+            border: 1.5px solid var(--border-light);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 160px;
+            font-family: inherit;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: var(--white);
+            padding: 4rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1.25rem;
+            font-weight: 800;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.65);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(212, 165, 116, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px 1.5rem 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+                letter-spacing: -0.8px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.25rem;
+            }
+
+            .section-header {
+                margin: 0 auto 3rem;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            color: var(--text-dark);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            font-weight: 700;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+           /* HERO SLIDER */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slides-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* HERO CONTENT */
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 5;
+    max-width: 700px;
+    padding: 20px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 10px;
+}
+
+.hero-overlay h1 {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.hero-overlay p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Navigation Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow.left { left: 20px; }
+.arrow.right { right: 20px; }
+
+
+        /* BUTTON STYLING */
+        .cta-buttons a {
+            margin: 10px;
+            padding: 12px 24px;
+            display: inline-block;
+        }
+
+        /* ARROWS */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.35);
+            color: white;
+            border: none;
+            font-size: 40px;
+            padding: 10px 18px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 5px;
+        }
+
+        .arrow.left {
+            left: 20px;
+        }
+
+        .arrow.right {
+            right: 20px;
+        }
+
+        .arrow:hover {
+            background: rgba(0,0,0,0.55);
+        }
+
+        /* RESPONSIVENESS */
+        @media (max-width: 768px) {
+            .hero-overlay h1 {
+                font-size: 28px;
+            }
+
+            .hero-overlay p {
+                font-size: 16px;
+            }
+        }
+                .about-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 columns */
+            grid-template-rows: 1fr 1fr;    /* 2 rows */
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+            gap: 12px;
+            max-width: 1200px;
+        }
+
+        .about-image-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;              /* Fill space properly */
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* END OF video IMAGE GRID STYLES */
+        /* Logos Section */
+        .logos {
+            width: 100%;
+            background: #fff; /* or any background you want */
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .logos-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 200px; /* Adjust height as needed */
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logos-container img {
+            width: calc(33.3333% - 8px); /* Each image takes ~1/3 of container */
+            height: 100%;
+            object-fit: contain; /* Ensures images fit inside their space */
+            background: #fff;
+        }
+
+        .logos-title {
+            font-size: 1.35rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .logos-container {
+                height: auto;
+                flex-direction: column;
+                gap: 16px;
+                padding: 0 1rem;
+            }
+
+            .logos-container img {
+                width: 100%;
+                height: 80px;
+                object-fit: contain;
+            }
+        }
+
+       /* Stats Row */
+        .display-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.display-stat {
+    text-align: center;
+}
+
+.display-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #c7b299 0deg,
+        #c7b299 0deg, /* will be updated dynamically */
+        #f0f0f0 0deg 360deg
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.display-circle-number {
+    position: absolute;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .display-stats {
+        justify-content: space-around;
+        gap: 20px;
+    }
+}
+
+        /* Display Section */
+.display-section {
+    width: 100%;
+    padding: 100px 0; /* Add space above and below */
+    box-sizing: border-box; /* Ensure padding doesn't break layout */
+}
+
+.display-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px; /* Limit container width */
+    margin: 0 auto; /* Center container */
+}
+
+/* Left Image Column */
+.display-left {
+    flex: 1 1 50%;
+    min-width: 300px;
+}
+
+.display-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Right Text Column */
+.display-right {
+    flex: 1 1 50%;
+    min-width: 300px;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Stats Row */
+.display-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* ... keep the rest as before ... */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .display-container {
+        flex-direction: column;
+    }
+
+    .display-left, .display-right {
+        flex: 1 1 100%;
+        min-width: 100%;
+        padding: 0;
+    }
+
+    .display-image {
+        height: 400px; /* fixed height for mobile */
+    }
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #fff; /* white icons, change as needed */
+    font-size: 24px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #ffd700; /* example hover color */
+}
+
+.map-responsive {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.logo {
+    display: flex;
+    align-items: center;       /* vertically center image and text */
+    gap: 10px;                 /* space between image and text */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    font-weight: normal;       /* optional: make 'Investment' lighter */
+}
+
+.logo-img {
+    width: 40px;               /* default size */
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        font-size: 20px;       /* smaller text on tablets */
+    }
+    .logo-img {
+        width: 30px;           /* smaller logo on tablets */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 18px;       /* smaller text on mobile */
+    }
+    .logo-img {
+        width: 25px;           /* smaller logo on mobile */
+    }
+}
+
+
+.hero-description {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    padding: 0 20px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <!-- <div class="logo">Melox <span>Investment</span></div> -->
+             <div class="logo">
+             <img src="images/melox.png" alt="Cortix Logo" class="logo-img">
+             CORTIX INVESTMENT LIMITED
+             </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contacts</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Your Trusted Investment Partner</h1>
+            <p>Building wealth and securing futures through strategic investment solutions tailored to your financial goals</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get Started</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section> -->
+    <!-- Hero Section -->
+    <!-- <section class="hero-slider" id="home">
+        <div class="slides-container">
+            <div class="slide" style="background-image: url('images/image1.jpeg');"></div>
+            <div class="slide" style="background-image: url('images/image2.jpeg');"></div>
+            <div class="slide" style="background-image: url('images/image33.jpeg');"></div>
+            <div class="slide" style="background-image: url('images/image4.jpeg');"></div>
+        </div>
+
+         Hero Content 
+        <div class="hero-overlay">
+            <h1>Your Trusted Investment Partner</h1>
+            <p>Building wealth and securing futures through strategic investment solutions tailored to your financial goals</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get Started</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+
+         Navigation Arrows 
+        <button class="arrow left" id="prevSlide">n</button>
+        <button class="arrow right" id="nextSlide">o</button>
+    </section> -->
+    <!-- Hero Section -->
+    <section class="hero-slider" id="home">
+        <div class="slides-container">
+            <div class="slide active" style="background-image: url('images/image1.jpg');"></div>
+            <div class="slide" style="background-image: url('images/image2.jpg');"></div>
+            <div class="slide" style="background-image: url('images/image3.jpg');"></div>
+            <div class="slide" style="background-image: url('images/image4.jpg');"></div>
+        </div> 
+
+        <!-- Hero Content -->
+        <div class="hero-overlay">
+            <h1>Your Trusted Investment Partner</h1>
+            <p>Building wealth and securing futures through strategic investment solutions tailored to your financial goals</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get Started</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="arrow left" id="prevSlide">n</button>
+        <button class="arrow right" id="nextSlide">o</button>
+    </section>
+
+
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Our Core Services</h2>
+            <p>Comprehensive financial solutions designed to maximize your returns and minimize risks</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>Infrastructure Investment & Development</h3>
+                <p>Investing in Projects that power Africa's progress.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Public-Private Partnership(PPP) Advisory & Execution</h3>
+                <p>Bridging public needs with private sector innovation.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Public-Private Partnership(PPP) Advisory 7 Execution</h3>
+                <p>Driving growth through smart capital and strategy.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💰</div>
+                <h3>Technical & Project Management Solutions</h3>
+                <p>Deliver excellence from concept to copetition.</p>
+            </div>
+            
+        </div>
+    </section>
+    <!-- Board of Members Section -->
+     <!-- Board of Members Section -->
+      <!-- Board of Members Section -->
+<!-- Board of Members Section -->
+<section class="services" id="board">
+    <div class="section-header">
+        <h2>Board of Members</h2>
+        <p>Our experienced and visionary leadership guiding CORTIX INVESTMENT LIMITED</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">
+                <div class="board-avatar">EM</div>
+            </div>
+            <h3>Eric Masta</h3>
+            <p>CEO &amp; Founder</p>
+            <p class="member-timeline">Spearheaded continental energy partnerships, powering sustainable development.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <div class="board-avatar">ZA</div>
+            </div>
+            <h3>Zoya Ali</h3>
+            <p>Secretary</p>
+            <p class="member-timeline">Orchestrates governance and smooth stakeholder alignment across every project.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <div class="board-avatar">IO</div>
+            </div>
+            <h3>Isaac Othoro</h3>
+            <p>Chief Financial Officer</p>
+            <p class="member-timeline">Structures smart financing to scale infrastructure while protecting investor returns.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <div class="board-avatar">PM</div>
+            </div>
+            <h3>Paul Mbaya</h3>
+            <p>Managing Director</p>
+            <p class="member-timeline">Drives on-the-ground delivery to build resilient projects that uplift communities.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+    <!-- About Section
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image">📊</div> 
+            <div class="about-content">
+                <h2 style="text-align: center;">About Us</h2>
+                <h3 style="text-align: center; font-size: 48px; font-weight: bold; line-height: 1.3;">
+    DELIVERING EXCELLENCE ACROSS EVERY PROJECT.
+</h3>
+
+               <div style="width: 100%; text-align: center;">
+    <p style="font-size: 40px; font-weight: bold; line-height: 1.2;">
+        Creating lasting value through strategic partnerships!<br>
+        Our focus is <span id="rotating-word" style="text-decoration: underline; font-weight: bold;">growth</span>.
+    </p>
+</div>
+
+
+                <ul class="about-features">
+                    <li>Licensed and regulated investment firm</li>
+                    <li>Proven track record of success</li>
+                    <li>Transparent and ethical practices</li>
+                    <li>Personalized investment strategies</li>
+                    <li>Dedicated client support team</li>
+                </ul>
+            </div>
+        </div>
+    </section> -->
+
+            <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about-container">
+
+                <div class="about-content">
+                    <div class="about-header">About Us</div>
+                    <h3 class="about-title">DELIVERING EXCELLENCE ACROSS EVERY PROJECT.</h3>
+                    <p class="about-tagline"><strong>Creating lasting value through strategic partnerships — Our focus is <span id="rotating-word" class="rotating-word">growth</span>.</strong></p>
+                    <p class="about-body">CORTIX INVESTMENT LIMITED is a diversified investment holding company focused on driving sustainable growth across Africa's core infrastructure sectors: Energy, Transport, Water, Agriculture, Industrial, minerals & mining . Headquartered in Nairobi, Kenya, and partnering with both local and international investors, we take a hands-on approach to developing impactful projects that transform communities and accelerate economic growth. Our focus is not just on capital deployment but on creating long-term value through innovation, operational excellence, and strategic collaboration.</p>
+                    <p class="about-tagline"><strong>Creating lasting value through strategic partnerships — Our focus is <span id="rotating-word" class="rotating-word">growth</span>.</strong></p>
+                    <div class="about-cta"><a href="#contact" class="btn btn-primary">Partner With Us</a></div>
+                </div>
+
+                <div class="about-images">
+                    <div class="about-image-grid">
+                        <img src="images/about1.jpg" alt="About 1">
+                        <img src="images/about2.jpg" alt="About 2">
+                        <img src="images/about3.jpg" alt="About 3">
+                        <img src="images/about4.jpg" alt="About 4">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+    <!-- Why Choose Us Section
+    <section class="why-choose" id="why-choose">
+        <div class="section-header">
+            <h2>Why Choose Melox Investment?</h2>
+            <p>We stand out through our commitment to excellence and client success</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="icon">🛡️</div>
+                <h3>Secure & Reliable</h3>
+                <p>Your investments are protected with industry-leading security measures and insurance coverage.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">👥</div>
+                <h3>Expert Team</h3>
+                <p>Our team consists of certified financial planners and investment specialists with decades of combined experience.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">💎</div>
+                <h3>Premium Service</h3>
+                <p>Enjoy personalized attention and premium service tailored to your unique financial situation.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">📱</div>
+                <h3>24/7 Access</h3>
+                <p>Monitor your investments anytime, anywhere with our secure online platform and mobile app.</p>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <h2>Our Customer Reviews</h2>
+            <p>Don't just take our word for it - hear from our satisfied clients</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">Melox Investment transformed my financial future. Their expert guidance helped me achieve returns I never thought possible. Highly recommended!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JK</div>
+                    <div class="author-info">
+                        <h4>John Kamau</h4>
+                        <p>Business Owner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">Professional, transparent, and results-driven. The team at Melox truly cares about their clients' success. My portfolio has grown significantly.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SM</div>
+                    <div class="author-info">
+                        <h4>Sarah Mwangi</h4>
+                        <p>Corporate Executive</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">I've been with Melox for 5 years and couldn't be happier. They consistently deliver excellent returns and provide clear, honest communication.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">DO</div>
+                    <div class="author-info">
+                        <h4>David Ochieng</h4>
+                        <p>Retired Professional</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section  -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">23</div>
+                <div class="stat-label">Patnerships</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">48</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Years</div>
+            </div>
+        </div>
+    </section>
+    <!-- Video Section -->
+        <section class="video-section" style="text-align:center; padding:3rem 1rem; background:#f9f9f9;">
+            <!-- <h2 style="font-size:36px; margin-bottom:1rem;">Our Video</h2>
+            <p style="margin-bottom:2rem;">Click the video to learn more about us!</p> -->
+
+            <!-- Video Thumbnail -->
+            <div style="position:relative; display:inline-block; cursor:pointer;" id="videoThumb">
+                <img src="images/maxresdefault.jpg" alt="Play Video" style="width:100%; max-width:800px; border-radius:10px;">
+                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+                            font-size:80px; color:rgba(255,255,255,0.8); pointer-events:none;">
+                    �
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Popup -->
+        <div id="videoModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+                                    background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+            <div style="position:relative; width:90%; max-width:900px;">
+                <span id="videoModalClose" style="position:absolute; top:-40px; right:0; font-size:40px; color:white; cursor:pointer;">�</span>
+                <iframe id="videoIframe" width="100%" height="480" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen=""></iframe>
+            </div>
+        </div>
+
+                <!-- Logos Section -->
+        <section class="logos" id="logos">
+            <h1 class="logos-title">Trusted By</h1>
+            <div class="logos-container">
+                <img src="images/logo1.png" alt="Logo 1">
+                <img src="images/logo2.png" alt="Logo 2">
+                <img src="images/logo3.png" alt="Logo 3">
+            </div>
+        </section>
+
+        <!-- Display Section -->
+    <!-- Display Section -->
+<section class="display-section">
+    <div class="display-container">
+
+        <!-- Left Image Column -->
+        <div class="display-left">
+            <img src="images/display1.jpg" alt="Team working together" class="display-image">
+        </div>
+
+        <!-- Right Text Column -->
+        <div class="display-right">
+            
+            <h1 class="display-title">STRATEGIC VISION</h1>
+
+            <h2 class="display-title">Empowering Growth Through Innovation</h2>
+
+            <p class="display-description">
+                At Melox Investment Limited, we create impact beyond profits. By leveraging strategic partnerships, smart planning, and disciplined execution, we unlock value while fostering sustainable growth across the sectors we operate in.
+            </p>
+
+            <div class="display-stats">
+
+        <div class="display-stat">
+            <div class="display-circle" data-percent="94">
+                <span class="display-circle-number">94%</span>
+            </div>
+            <p class="display-stat-label">Client Satisfaction</p>
+        </div>
+
+        <div class="display-stat">
+            <div class="display-circle" data-percent="89">
+                <span class="display-circle-number">89%</span>
+            </div>
+            <p class="display-stat-label">Project Success</p>
+        </div>
+
+</div>
+
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- 
+    Contact Section -->
+    <!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="section-header">
+        <h2>Get In Touch</h2>
+        <p>Ready to start your investment journey? Contact us today</p>
+    </div>
+
+    <div class="contact-container">
+
+        <!-- <div class="contact-info">
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-content">
+                    <h3>Our Office</h3>
+                    <p>P.O. Box 42498<br>GPO Nairobi<br>Kenya</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">✉️</div>
+                <div class="info-content">
+                    <h3>Email</h3>
+                    <p>GOBOENTERPRICES@HOTMAIL.COM</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">🕒</div>
+                <div class="info-content">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                    <p>Saturday: 9:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+        </div> -->
+
+    <div class="contact-info">
+    <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div class="info-content">
+            <h3>Our Office Location</h3>
+            <p>P.O. Box 42498 GPO<br> Nairobi Kenya</p>
+        </div>
+    </div>
+
+    <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div class="info-content">
+            <h3>Phone Number</h3>
+            <p>254 731 167 303</p>
+        </div>
+    </div>
+
+
+    <div class="info-item">
+        <div class="info-icon">✉️</div>
+        <div class="info-content">
+            <h3>Email</h3>
+            <p>cortixinvestmentltd@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="info-item">
+        <div class="info-icon">🕒</div>
+        <div class="info-content">
+            <h3>Business Hours</h3>
+            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+            <p>Saturday: 9:00 AM - 2:00 PM</p>
+        </div>
+    </div>
+
+    <!-- Responsive Map Section -->
+    <div class="info-item map-item">
+        <div class="map-responsive">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6816.822001661311!2d36.818921342259166!3d-1.2862556863587542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d6d9ac76b1%3A0x2ddd74d47025eabc!2sMazel%20Investment%20Ltd!5e1!3m2!1sen!2ske!4v1765440486379!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Contact Form using Formspree with AJAX and spinner -->
+        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xeoypjeb" method="POST">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Message Subject" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us about your investment goals" required=""></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;" id="submitBtn">
+                <span id="btnText">Send Message</span>
+                <span id="btnSpinner" style="display:none;">⏳</span>
+            </button>
+
+            <!-- Message display -->
+            <div id="formMessage" style="margin-top: 15px;"></div>
+        </form>
+
+    </div>
+</section>
+
+<!-- AJAX Script with spinner -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent page reload
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const formMessage = document.getElementById("formMessage");
+    const submitBtn = document.getElementById("submitBtn");
+    const btnText = document.getElementById("btnText");
+    const btnSpinner = document.getElementById("btnSpinner");
+
+    // Show spinner
+    btnText.style.display = "none";
+    btnSpinner.style.display = "inline";
+
+    fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        // Hide spinner
+        btnText.style.display = "inline";
+        btnSpinner.style.display = "none";
+
+        if (response.ok) {
+            formMessage.style.color = "green";
+            formMessage.textContent = "Thank you! Your message has been sent.";
+            form.reset();
+        } else {
+            response.json().then(data => {
+                formMessage.style.color = "red";
+                if (data.errors) {
+                    formMessage.textContent = data.errors.map(error => error.message).join(", ");
+                } else {
+                    formMessage.textContent = "Oops! There was a problem submitting your form.";
+                }
+            })
+        }
+    }).catch(error => {
+        btnText.style.display = "inline";
+        btnSpinner.style.display = "none";
+
+        formMessage.style.color = "red";
+        formMessage.textContent = "Oops! There was a problem submitting your form.";
+    });
+});
+</script>
+
+    
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+                <div class="footer-section">
+                <h3>CORTIX INVESTMENT LIMITED</h3>
+                <p>Your trusted partner in building wealth and securing financial futures.</p>
+                <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://web.facebook.com/profile.php?id=61585649577414" target="_blank" title="Facebook">
+                     <i class="fab fa-facebook-f"></i>
+                </a>
+
+                
+                
+                <a href="https://www.instagram.com/meloxinvestment/" target="_blank" title="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+
+            </div>
+        </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services"> Our Services</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contacts</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#services">Infrastructure Investment & Development</a>
+                <a href="#services">Public-Private Partnership(PPP) Advisory & Execution</a>
+                <a href="#services">Technical & Project Management Solutions</a>
+            </div>
+                <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>P.O. Box 42498, GPO Nairobi</p>
+                <p>Email:cortixinvestmentltd@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>� 2025 CORTIX INVESTMENT LIMITED. All rights reserved. | Licensed & Regulated</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !phone || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Success message
+            alert('Thank you for your message! We will contact you shortly.');
+            
+            // Clear form
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('message').value = '';
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and other elements
+        document.querySelectorAll('.service-card, .feature-box, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.dataset.suffix || '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.dataset.suffix || '');
+                }
+            }, 20);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.stat-number').forEach(stat => {
+                        const target = parseInt(stat.textContent);
+                        stat.dataset.suffix = stat.textContent.replace(/[0-9]/g, '');
+                        animateCounter(stat, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+                        let currentSlide = 0;
+        const slidesContainer = document.querySelector(".slides-container");
+        const totalSlides = document.querySelectorAll(".slide").length;
+
+        function showSlide(index) {
+            currentSlide = (index + totalSlides) % totalSlides;
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Auto slide every 3 seconds
+        let autoSlide = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 3000); // 3 seconds per slide
+
+        // Arrow Controls
+        document.getElementById("prevSlide").addEventListener("click", () => {
+            clearInterval(autoSlide);
+            showSlide(currentSlide - 1);
+            autoSlide = setInterval(() => showSlide(currentSlide + 1), 3000);
+        });
+
+        document.getElementById("nextSlide").addEventListener("click", () => {
+            clearInterval(autoSlide);
+            showSlide(currentSlide + 1);
+            autoSlide = setInterval(() => showSlide(currentSlide + 1), 3000);
+        });
+        // Rotating words in About section
+         const words = ["growth", "success", "resilience"];
+    let currentIndex = 0;
+    const rotatingWord = document.getElementById("rotating-word");
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % words.length;
+        rotatingWord.textContent = words[currentIndex];
+    }, 2000); // change every 2 seconds
+
+    //video
+            const thumb = document.getElementById('videoThumb');
+        const modal = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoIframe');
+        const closeBtn = document.getElementById('videoModalClose');
+
+        const youtubeURL = 'https://www.youtube.com/embed/k0l8bwoq8Gs?autoplay=1&rel=0';
+
+        thumb.addEventListener('click', () => {
+            iframe.src = youtubeURL;
+            modal.style.display = 'flex';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            iframe.src = '';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                iframe.src = '';
+            }
+        });
+
+        document.querySelectorAll('.display-circle').forEach(circle => {
+        const percent = circle.getAttribute('data-percent');
+        const degree = (percent / 100) * 360;
+        circle.style.background = `conic-gradient(#c7b299 0deg ${degree}deg, #f0f0f0 ${degree}deg 360deg)`;
+        });
+        
+const slides = document.querySelectorAll(".slides-container .slide");
+const prevBtn = document.getElementById("prevSlide");
+const nextBtn = document.getElementById("nextSlide");
+
+// Show slide by index
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+    });
+}
+
+// Auto slide every 3 seconds
+let slideInterval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+}, 3000);
+
+// Manual controls
+nextBtn.addEventListener("click", () => {
+    clearInterval(slideInterval);
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+    restartInterval();
+});
+
+prevBtn.addEventListener("click", () => {
+    clearInterval(slideInterval);
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+    restartInterval();
+});
+
+function restartInterval() {
+    slideInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }, 3000);
+}
+document.addEventListener("DOMContentLoaded", () => {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+
+    const showSlide = (index) => {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        currentSlide = (index + totalSlides) % totalSlides; 
+        slides[currentSlide].classList.add("active");
+    };
+
+    
+    let autoSlide = setInterval(() => showSlide(currentSlide + 1), 3000);
+
+    
+    document.getElementById("prevSlide").addEventListener("click", () => {
+        clearInterval(autoSlide);
+        showSlide(currentSlide - 1);
+        autoSlide = setInterval(() => showSlide(currentSlide + 1), 3000);
+    });
+
+    document.getElementById("nextSlide").addEventListener("click", () => {
+        clearInterval(autoSlide);
+        showSlide(currentSlide + 1);
+        autoSlide = setInterval(() => showSlide(currentSlide + 1), 3000);
+    });
+});
+
+    </script>
+    
+
+
+                </body></html>

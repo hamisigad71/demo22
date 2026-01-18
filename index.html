@@ -268,6 +268,8 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 700;
+            color: var(--accent-color);
+
         }
 
         /* Services Section */
@@ -1328,12 +1330,79 @@
     </style>
 </head>
 <body>
+    <!-- Glass loader (professional frosted/glass panel) -->
+    <div id="glassLoader" class="glass-loader" aria-hidden="false">
+        <div class="glass-panel" role="status" aria-live="polite">
+            <!-- <img src="images/melox.png" alt="Cortix logo" class="loader-logo">-->
+            <div class="spinner" aria-hidden="true"></div>
+            <p class="loader-text">Preparing your experience...</p>
+        </div>
+    </div>
+
+    <style>
+        /* Glass loader styles - blends with site's theme */
+        .glass-loader{
+            position:fixed;
+            inset:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:rgba(10,14,39,0.40);
+            backdrop-filter:blur(8px) saturate(1.05);
+            -webkit-backdrop-filter:blur(8px) saturate(1.05);
+            z-index:2000;
+            transition:opacity .45s ease, visibility .45s ease;
+        }
+
+        .glass-loader.hidden{
+            opacity:0;
+            visibility:hidden;
+            pointer-events:none;
+        }
+
+        .glass-panel{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:12px;
+            padding:20px 28px;
+            border-radius:14px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+            border:1px solid rgba(255,255,255,0.06);
+            box-shadow:0 12px 36px rgba(10,14,39,0.45);
+            max-width:340px;
+            width:88%;
+            text-align:center;
+            color:var(--white);
+        }
+
+        .loader-logo{ width:48px; height:auto; border-radius:8px; box-shadow:0 6px 18px rgba(10,14,39,0.25); }
+
+        .spinner{
+            width:56px; height:56px; border-radius:50%;
+            border:5px solid rgba(255,255,255,0.14);
+            border-top-color:var(--accent-color);
+            animation:loaderSpin 0.95s linear infinite;
+            box-shadow:0 8px 20px rgba(212,165,116,0.12);
+        }
+
+        @keyframes loaderSpin{ to{ transform:rotate(360deg); } }
+
+        .loader-text{
+            font-weight:700;
+            color:rgba(255,255,255,0.95);
+            letter-spacing:0.25px;
+            font-size:0.96rem;
+        }
+
+        @media (max-width:520px){ .glass-panel{ padding:16px 18px; max-width:320px; } .spinner{ width:48px; height:48px; } }
+    </style>
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <!-- <div class="logo">Melox <span>Investment</span></div> -->
              <div class="logo">
-             <img src="images/melox.png" alt="Cortix Logo" class="logo-img">
+            <!-- <img src="images/melox.png" alt="Cortix Logo" class="logo-img">-->
              CORTIX INVESTMENT LIMITED
              </div>
 
@@ -1535,10 +1604,9 @@
 
   <div class="hero-overlay">
     <div class="hero-content">
-      <h1>Your Trusted Investment Partner</h1>
+      <h1>Sustainable Infrastructure Investments That Deliver Long-Term Returns</h1>
       <p>
-        Building wealth and securing futures through strategic investment
-        solutions tailored to your financial goals.
+       We finance and develop strategic infrastructure projects across Africa — creating measurable impact, resilient communities, and stable returns for investors.
       </p>
 
       <div class="cta-buttons">
@@ -1837,7 +1905,7 @@
     <!-- Why Choose Us Section
     <section class="why-choose" id="why-choose">
         <div class="section-header">
-            <h2>Why Choose Melox Investment?</h2>
+            <h2>Why Choose CORTIX INVESTMENT?</h2>
             <p>We stand out through our commitment to excellence and client success</p>
         </div>
         <div class="features-grid">
@@ -1872,7 +1940,7 @@
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <p class="testimonial-text">Melox Investment transformed my financial future. Their expert guidance helped me achieve returns I never thought possible. Highly recommended!</p>
+                <p class="testimonial-text">CORTIX INVESTMENT transformed my financial future. Their expert guidance helped me achieve returns I never thought possible. Highly recommended!</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">JK</div>
                     <div class="author-info">
@@ -1905,68 +1973,26 @@
     </section>
     
     <!-- Stats Section  -->
-    <style>
-/* ===== STATS SECTION ===== */
-.stats {
-  padding: 3rem 6%;
-  background: #0b1c3d;
-}
-
-.stats-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.stat-item {
-  flex: 1;
-  min-width: 140px;
-  text-align: center;
-}
-
-.stat-number {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #c9a26d;
-  margin-bottom: 0.25rem;
-}
-
-.stat-label {
-  font-size: 0.95rem;
-  color: #ffffff;
-  opacity: 0.9;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .stats-container {
-    justify-content: center;
-  }
-}
-</style>
-
-<section class="stats">
   <div class="stats-container">
-    <div class="stat-item">
-      <div class="stat-number">23</div>
-      <div class="stat-label">Partnerships</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">48</div>
-      <div class="stat-label">Projects</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">13</div>
-      <div class="stat-label">Countries</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">7</div>
-      <div class="stat-label">Years</div>
-    </div>
-  </div>
-</section>
+            <div class="stat-item">
+                <div class="stat-number">23</div>
+                <div class="stat-label">Patnerships</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">48</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Years</div>
+            </div>
+        </div>
+    </section>
+ 
 
     <!-- Video Section -->
         <section class="video-section" style="text-align:center; padding:3rem 1rem; background:#f9f9f9;">
@@ -2020,7 +2046,7 @@
             <h2 class="display-title">Empowering Growth Through Innovation</h2>
 
             <p class="display-description">
-                At Melox Investment Limited, we create impact beyond profits. By leveraging strategic partnerships, smart planning, and disciplined execution, we unlock value while fostering sustainable growth across the sectors we operate in.
+                At CORTIX INVESTMENT Limited, we create impact beyond profits. By leveraging strategic partnerships, smart planning, and disciplined execution, we unlock value while fostering sustainable growth across the sectors we operate in.
             </p>
 
             <div class="display-stats">
@@ -2550,7 +2576,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
     </script>
-    
 
+    <script>
+        // Glass loader auto-hide: hide after full load or after a short timeout
+        (function(){
+            const loader = document.getElementById('glassLoader');
+            if(!loader) return;
+            function hideLoader(){
+                loader.classList.add('hidden');
+                setTimeout(()=>{
+                    if(loader && loader.parentNode) loader.parentNode.removeChild(loader);
+                },600);
+            }
+            if(document.readyState === 'complete') hideLoader();
+            else window.addEventListener('load', hideLoader);
+            // Safety fallback in case load event doesn't fire quickly
+            setTimeout(hideLoader, 8000);
+        })();
+    </script>
 
                 </body></html>

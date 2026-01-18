@@ -1,7 +1,7 @@
-# Melox Investment Limited - Comprehensive Styling Modernization
+# CORTIX INVESTMENT Limited - Comprehensive Styling Modernization
 
 ## Overview
-The Melox Investment website has been completely modernized with a professional premium aesthetic that conveys trust, sophistication, and financial excellence.
+The CORTIX INVESTMENT website has been completely modernized with a professional premium aesthetic that conveys trust, sophistication, and financial excellence.
 
 ---
 

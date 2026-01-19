@@ -1333,14 +1333,14 @@
     <!-- Glass loader (professional frosted/glass panel) -->
     <div id="glassLoader" class="glass-loader" aria-hidden="false">
         <div class="glass-panel" role="status" aria-live="polite">
-            <!-- <img src="images/melox.png" alt="Cortix logo" class="loader-logo">-->
-            <dhero-contentiv class="spinner" aria-hidden="true"></div>
+            <div class="loader-mark" aria-hidden="true"><span>CORTIX</span></div>
+            <div class="spinner" aria-hidden="true"></div>
             <p class="loader-text">Preparing your experience...</p>
         </div>
     </div>
 
     <style>
-        /* Glass loader styles - blends with site's theme */
+        /* Glass loader styles - blends with site's theme (text-only mark) */
         .glass-loader{
             position:fixed;
             inset:0;
@@ -1376,7 +1376,7 @@
             color:var(--white);
         }
 
-        .loader-logo{ width:48px; height:auto; border-radius:8px; box-shadow:0 6px 18px rgba(10,14,39,0.25); }
+        .loader-mark{ font-size:20px; font-weight:800; color:var(--white); padding:6px 12px; border-radius:8px; background:linear-gradient(90deg,var(--accent-color),var(--accent-dark)); box-shadow:0 8px 20px rgba(212,165,116,0.12); letter-spacing:1px; }
 
         .spinner{
             width:56px; height:56px; border-radius:50%;
@@ -2578,20 +2578,36 @@ document.addEventListener("DOMContentLoaded", () => {
     </script>
 
     <script>
-        // Glass loader auto-hide: hide after full load or after a short timeout
+        // Glass loader auto-hide with enforced minimum display time (4s)
         (function(){
             const loader = document.getElementById('glassLoader');
             if(!loader) return;
-            function hideLoader(){
+            const MIN_MS = 4000; // 4 seconds minimum
+            const startTime = Date.now();
+
+            function removeLoader(){
+                if(!loader) return;
                 loader.classList.add('hidden');
                 setTimeout(()=>{
                     if(loader && loader.parentNode) loader.parentNode.removeChild(loader);
-                },600);
+                }, 600);
             }
-            if(document.readyState === 'complete') hideLoader();
-            else window.addEventListener('load', hideLoader);
-            // Safety fallback in case load event doesn't fire quickly
-            setTimeout(hideLoader, 8000);
+
+            // Force hide after MIN_MS regardless of load state
+            setTimeout(removeLoader, MIN_MS);
+
+            // If page finishes loading before MIN_MS, wait remaining time
+            if(document.readyState === 'complete'){
+                const elapsed = Date.now() - startTime;
+                const remaining = Math.max(0, MIN_MS - elapsed);
+                setTimeout(removeLoader, remaining);
+            } else {
+                window.addEventListener('load', () => {
+                    const elapsed = Date.now() - startTime;
+                    const remaining = Math.max(0, MIN_MS - elapsed);
+                    setTimeout(removeLoader, remaining);
+                });
+            }
         })();
     </script>
 
